@@ -73,6 +73,7 @@ const render = () => {
   refs.seconds.textContent = addLeadingZero(dates.seconds);
   localStorage.setItem('date', newStorage);
 };
+let renderedId = null;
 const onStart = () => {
   refs.start.disabled = true;
   refs.input.disabled = true;
