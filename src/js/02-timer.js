@@ -36,7 +36,7 @@ const options = {
 };
 
 flatpickr('#datetime-picker', options);
-
+let dates = null;
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
