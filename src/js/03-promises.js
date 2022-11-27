@@ -28,13 +28,17 @@ function createPromise(position, delay) {
 }
 const promisePostponer = (delay, step, amount) => {
   let newDelay = 0;
-  for (let i = 1; i <= Number(amount); i += 1) {
-    newDelay = i === 1 ? Number(delay) : (newDelay += Number(step));
+  for (let i = 1; i <= amount; i += 1) {
+    newDelay = i === 1 ? delay : (newDelay += step);
     createPromise(i, newDelay);
   }
 };
 const onSubmit = e => {
   e.preventDefault();
-  promisePostponer(refs.delay.value, refs.step.value, refs.amount.value);
+  promisePostponer(
+    Number(refs.delay.value),
+    Number(refs.step.value),
+    Number(refs.amount.value)
+  );
 };
 refs.form.addEventListener('submit', onSubmit);
